@@ -20,13 +20,13 @@ import itertools
 #         "All of other players's cards, concatenated in a single list."
 #         #return sum([x.cards for x in self.other_hands], [])
 #         return list(itertools.chain.from_iterable([hand.cards for hand in self.other_hands]))
+from hanabi.ai import AI 
 
-
-class Player_hat_guesser:
+class Player_hat_guesser(AI):
 
     def __init__(self, game):
         self.game = game
-        self.latest_turn_memory=(0,0,0) #A chaque tour, ce couple represente (nombre de cartes posees depuis le dernier indice, nombre de cartes defaussees depuis le dernier indice, le dernier indice sous forme de "couleur")
+        self.latest_turn_memory=[0,0,0] #A chaque tour, ce couple represente (nombre de cartes posees depuis le dernier indice, nombre de cartes defaussees depuis le dernier indice, le dernier indice sous forme de "couleur")
         #On fait la somme des deux premiers elements du couple pour obtenir le nombre de coups effectues depuis le dernier indice.
         self.list_players = ['Alice','Benji','Clara','Dante','Elric']
         self.list_players = self.list_players[0:len(game.players)]
@@ -37,7 +37,6 @@ class Player_hat_guesser:
         "The list of other players' hands."
         return self.game.hands[1:]
 
-    @property
     def recommendation_4cards(self,i):
         type_recommendation_4cards = {0 : ('number',0),
                                       1 : ('number',1),
@@ -49,7 +48,6 @@ class Player_hat_guesser:
                                       7 : ('color',3)}
         return type_recommendation_4cards[i]
 
-    @property
     def recommendation_5cards(self,i):
         type_recommendation_5cards = {0 : ('number',0),
                                       1 : ('number',1),
@@ -118,6 +116,7 @@ class Player_hat_guesser:
                     type_recommendation = 3
 
                 #on compte le nombre de cartes identiques à celle que l'on considère dans la pile de défausse
+                count=0
                 for card_from_discard in game.discard_pile.cards:
                     if card_from_discard == card:
                         count += 1
@@ -149,7 +148,7 @@ class Player_hat_guesser:
         what_to_do %= number_cards
 
         if what_to_do <= number_cards-1 and self.latest_turn_memory[0]==0 : #If the most recent recommendation was to play a card and no card has been played since the last hint, play the recommended card
-            self.latest_turn_memory[0]+=1
+            self.latest_turn_memory[0] += 1
             return('p%d'%what_to_do)
 
         elif what_to_do <= number_cards-1 and self.latest_turn_memory[0]==0 and game.red_coins<2 : #If the most recent recommendation was to play a card, one card has been played since the hint was given, and the players have made fewer than two errors, play the recommended card

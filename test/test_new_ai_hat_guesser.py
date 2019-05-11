@@ -4,11 +4,11 @@
 import hanabi
 import hanabi.ai
 
-import hanabi.ai_random as new_ai
+import hanabi.ai_hat_guessing_recommendation as new_ai
 
-game = hanabi.Game(2)  # 2 players
+game = hanabi.Game(5)  # 2 players
 
-ai = new_ai.Player_random(game)
+ai = new_ai.Player_hat_guesser(game)
 #ai = hanabi.ai.Cheater(game)
 
 
