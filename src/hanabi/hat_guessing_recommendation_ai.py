@@ -175,14 +175,4 @@ class Player_better:
         else : #Otherwise, discard c1
             self.latest_turn_memory[1]+=1
             return('d%1')
-
-
-
-
-
-
-
-                
-
-
- 
+        ### FIN WHAT TO DO ###
