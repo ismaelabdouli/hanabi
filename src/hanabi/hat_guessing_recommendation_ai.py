@@ -22,7 +22,7 @@ import itertools
 #         return list(itertools.chain.from_iterable([hand.cards for hand in self.other_hands]))
 
 
-class Player_better:
+class Player_hat_guesser:
 
     def __init__(self, game):
         self.game = game
