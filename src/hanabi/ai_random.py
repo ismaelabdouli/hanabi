@@ -4,13 +4,7 @@ Artificial Intelligence to play Hanabi.
 
 import random
 
-class AI:
-    """
-    AI base class: some basic functions, game analysis.
-    """
-    def __init__(self, game):
-        self.game = game
-        
+from hanabi.ai import AI 
 
 class Player_random(AI):
 
@@ -29,7 +23,7 @@ class Player_random(AI):
             print("I discard ! ")
             return("d%d"%random.choice([1,2,3,4,5]))
         
-        elif (action == "give_clue") and (game.blue_coins > 0):
+        elif (action == "give_clue") and (game.blue_coins > 0) and (game.blue_coins < 8):
             print("I give a clue! ")
            # a="c%s"%random.choice(["W","G","R","Y","B"])
            # print(a)

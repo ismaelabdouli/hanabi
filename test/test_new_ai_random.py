@@ -4,11 +4,11 @@
 import hanabi
 import hanabi.ai
 
-import hanabi.my_new_smart_ai_mieux as new_ai
+import hanabi.random_ai as new_ai
 
 game = hanabi.Game(2)  # 2 players
 
-ai = new_ai.Player_better(game)
+ai = new_ai.Player_random(game)
 #ai = hanabi.ai.Cheater(game)
 
 
@@ -22,3 +22,5 @@ ai = new_ai.Player_better(game)
 
 # pour jouer toute une partie
 game.ai = ai
+
+#faire alors sur python3 : from test_new_ai_random import *
