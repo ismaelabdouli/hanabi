@@ -75,7 +75,7 @@ class Player_hat_guesser(AI):
 
         self.list_players.append(self.list_players[0])
         self.list_players.pop(0)#On modifie la liste des noms pour qu'elle commence par le premier joueur qu'on observe et finisse par nous
-
+        print(self.list_players)
         #il faudra attribuer à chaque main parcourue un nombre entre 0 et (2 * number_cards - 1 )
         #Une main de 4 cartes entraîne par exemple l'attribution d'un numéro entre 0 et 2*4-1=7
 
@@ -136,7 +136,7 @@ class Player_hat_guesser(AI):
 
             S += hat_color
 
-        S = S % number_cards
+        S = S % number_players
 
         ### FIN GIVE A CLUE ###
 
@@ -145,15 +145,18 @@ class Player_hat_guesser(AI):
         players_not_hinters = [i for i in range(number_players-1) if i != (number_players-2)-(self.latest_turn_memory[0]+self.latest_turn_memory[1])]
         for i in players_not_hinters: #on considère tous les autres joueurs sauf celui qui a donné le dernier indice
             what_to_do -= color_by_players[i]
-        what_to_do %= number_cards
+        what_to_do %= number_players
+        what_to_do += 1
 
-        if what_to_do <= number_cards-1 and self.latest_turn_memory[0]==0 : #If the most recent recommendation was to play a card and no card has been played since the last hint, play the recommended card
+        if what_to_do <= number_cards and self.latest_turn_memory[0]==0 : #If the most recent recommendation was to play a card and no card has been played since the last hint, play the recommended card
             self.latest_turn_memory[0] += 1
             return('p%d'%what_to_do)
+            #return ('c{}'.format(what_to_do))
 
-        elif what_to_do <= number_cards-1 and self.latest_turn_memory[0]==0 and game.red_coins<2 : #If the most recent recommendation was to play a card, one card has been played since the hint was given, and the players have made fewer than two errors, play the recommended card
+        elif what_to_do <= number_cards and self.latest_turn_memory[0]==0 and game.red_coins<2 : #If the most recent recommendation was to play a card, one card has been played since the hint was given, and the players have made fewer than two errors, play the recommended card
             self.latest_turn_memory[0]+=1
             return('p%d'%what_to_do)
+            #return ('c{}'.format(what_to_do))
         
         elif game.blue_coins > 0 : #If the players have a hint token, give a hint
             self.latest_turn_memory=[0,0,S]
@@ -167,11 +170,12 @@ class Player_hat_guesser(AI):
             if recommendation[0]=='color':
                 return ('c{}{}'.format(card_to_hint.color,self.list_players[recommendation[1]][0]))
             
-        elif what_to_do > number_cards-1 : #If the most recent recommendation was to discard a card, discard the requested card
+        elif what_to_do > number_cards : #If the most recent recommendation was to discard a card, discard the requested card
             self.latest_turn_memory[1]+=1
             return('d%d'%what_to_do)
+            #return ('c{}'.format(what_to_do))
         
         else : #Otherwise, discard c1
             self.latest_turn_memory[1]+=1
-            return('d%1')
+            return('d1')
         ### FIN WHAT TO DO ###
