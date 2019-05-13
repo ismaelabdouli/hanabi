@@ -5,7 +5,7 @@ import statistics
 
 L=[]
 game=hanabi.Game(5)
-import hanabi.random_ai as new_ai
+import hanabi.ai_random as new_ai
 
 for i in range(1000):
     game.reset()
