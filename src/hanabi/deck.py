@@ -40,7 +40,7 @@ class Color(Enum):
 class Card:
     "A hanabi card."
     def __init__(self, color=None, number=None):
-        assert (1 <= number <= 5), "Wrong number"
+        assert (0 <= number <= 5), "Wrong number" ### !!!!!!!!! 0 EST PERMIS POUR QUE L'ON CREE UNE VIRTUAL CARD
         self.color = color
         self.number = number
         self.color_clue = False
