@@ -84,7 +84,6 @@ class Player_hat_guesser(AI):
         number_cards = game.deck.cards_by_player[number_players]
         virtual_card = hanabi.deck.Card(hanabi.deck.Color.Yellow,0)  
 
-        print(self.what_to_do)
 
         if len(game.deck.cards) != 0:
         
@@ -153,7 +152,7 @@ class Player_hat_guesser(AI):
                 return('p%d'%self.what_to_do[index_what_to_do])
                 #return ('c{}'.format(what_to_do))
 
-            elif self.what_to_do[index_what_to_do] <= number_cards and self.latest_turn_memory[0]==0 and game.red_coins<2 : #If the most recent recommendation was to play a card, one card has been played since the hint was given, and the players have made fewer than two errors, play the recommended card
+            elif self.what_to_do[index_what_to_do] <= number_cards and self.latest_turn_memory[0]==1 and game.red_coins<2 : #If the most recent recommendation was to play a card, one card has been played since the hint was given, and the players have made fewer than two errors, play the recommended card
                 self.latest_turn_memory[0]+=1
                 return('p%d'%self.what_to_do[index_what_to_do])
                 #return ('c{}'.format(what_to_do))
