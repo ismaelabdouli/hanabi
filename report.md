@@ -19,4 +19,4 @@ Si le fait de piocher 3 jetons rouges ne ramenait pas le score à 0 mais arrêta
 
 ### Description and Discussion
 
-L'idée de cette IA était de s'inspirer de plusieurs éléments du document  [GitHub] https://github.com/Zamiell/hanabi-conventions permettant de donner un ordre de priorité aux actions à effectuer ainsi qu'un ordre de priorité sur les indices à donner.
+L'idée de cette IA était de s'inspirer de plusieurs éléments du document https://github.com/Zamiell/hanabi-conventions permettant de donner un ordre de priorité aux actions à effectuer ainsi qu'un ordre de priorité sur les indices à donner.
