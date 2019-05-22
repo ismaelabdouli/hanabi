@@ -61,14 +61,14 @@ class Player_better(AI):
 
                 #Si on trouve un cinq on donne un save clue de nombre directement
                 if card.number == 5 and card.number_clue == False:
-                    print("I give a clue!")
+                    #print("I give a clue!")
                     return("c%s"%5)
 
                 #A AMELIORER : Si on trouve un deux on donne un save clue de nombre (corriger apr�s pour donner un indice que si c'est int�ressant)
                 if card.number == 2 and card.number_clue == False:    
                     if card not in left_cards : #on rentre dans ce if si la carte n'est nulle part ailleurs(on n'oublie pas de ne pas recompter la carte que l'on consid�re)
                         if card.number>game.piles[card.color]: #on rentre si la carte n'a pas �t� encore pos�e
-                            print("I give a clue!")
+                            #print("I give a clue!")
                             return("c%s"%2)
                             #Si on trouve une derni�re carte en jeu, on donne un save clue si on peut encore donner un indice
                 
@@ -79,12 +79,12 @@ class Player_better(AI):
                 if (count == game.deck.card_count[card.number]-1): #si oui, alors c'est la derni�re carte, qui n'a obligatoirement pas �t� jou�e car toutes les autres sont dans la pile
                     #si pas d'indice de nombre, on donne un indice de nombre
                     if card.number_clue == False:
-                        print("I give a clue")
+                        #print("I give a clue")
                         return("c%s"%card.number)
                     
                     #si pas d'indice de couleur, on donne un indice de couleur
                     elif card.color_clue == False:
-                        print("I give a clue")
+                        #print("I give a clue")
                         c = "c%s"%card.color
                         return(c[:2])
                         
@@ -94,12 +94,12 @@ class Player_better(AI):
                 
                         #si pas d'indice de nombre, on donne un indice de nombre
                         if card.number_clue == False:
-                            print("I give a clue")
+                            #print("I give a clue")
                             return("c%s"%card.number)
                     
                         #si pas d'indice de couleur, on donne un indice de couleur
                         elif card.color_clue == False:
-                            print("I give a clue")
+                            #print("I give a clue")
                             c = "c%s"%card.color
                             return(c[:2])
 
@@ -108,12 +108,12 @@ class Player_better(AI):
                 if game.piles[card.color]+1 == card.number:
                     #si pas d'indice de nombre, on donne un indice de nombre
                     if card.number_clue == False:
-                        print("I give a clue")
+                        #print("I give a clue")
                         return("c%s"%card.number)
                     
                     #si pas d'indice de couleur, on donne un indice de couleur
                     elif card.color_clue == False:
-                        print("I give a clue")
+                        #print("I give a clue")
                         c = "c%s"%card.color
                         return(c[:2])
 
@@ -123,14 +123,14 @@ class Player_better(AI):
 
                 #Si on trouve un cinq on donne un save clue de nombre directement
                 if card.number == 5 and card.number_clue == False:
-                    print("I give a clue!")
+                    #print("I give a clue!")
                     return("c%s"%5)
 
                 #A AMELIORER : Si on trouve un deux on donne un save clue de nombre (corriger apr�s pour donner un indice que si c'est int�ressant)                    if card.number == 2 and card.number_clue == False:
                 if card.number == 2 and card.number_clue == False:
                     if card not in left_cards: #on rentre dans ce if si la carte n'est nulle part ailleurs(on n'oublie pas de ne pas recompter la carte que l'on consid�re)
                         if card.number>game.piles[card.color]: #on rentre si la carte n'a pas �t� encore pos�e
-                            print("I give a clue!")
+                            #print("I give a clue!")
                             return("c%s"%2)
                             #Si on trouve une derni�re carte en jeu, on donne un save clue si on peut encore donner un indice
                 
@@ -140,12 +140,12 @@ class Player_better(AI):
                         count += 1 
                 if (count == game.deck.card_count[card.number]-1): #si oui, alors c'est la derni�re carte, qui n'a obligatoirement pas �t� jou�e car toutes les autres sont dans la pile                        #si pas d'indice de nombre, on donne un indice de nombre
                     if card.number_clue == False:
-                        print("I give a clue")
+                        #print("I give a clue")
                         return("c%s"%card.number)
                     
                     #si pas d'indice de couleur, on donne un indice de couleur
                     elif card.color_clue == False:
-                        print("I give a clue")
+                        #print("I give a clue")
                         c = "c%s"%card.color
                         return(c[:2])
                         
@@ -155,12 +155,12 @@ class Player_better(AI):
                 
                         #si pas d'indice de nombre, on donne un indice de nombre
                         if card.number_clue == False:
-                            print("I give a clue")
+                            #print("I give a clue")
                             return("c%s"%card.number)
                     
                         #si pas d'indice de couleur, on donne un indice de couleur
                         elif card.color_clue == False:
-                            print("I give a clue")
+                            #print("I give a clue")
                             c = "c%s"%card.color
                             return(c[:2])
 
@@ -169,12 +169,12 @@ class Player_better(AI):
                 if game.piles[card.color]+1 == card.number:
                     #si pas d'indice de nombre, on donne un indice de nombre
                     if card.number_clue == False:
-                        print("I give a clue")
+                        #print("I give a clue")
                         return("c%s"%card.number)
                     
                 #si pas d'indice de couleur, on donne un indice de couleur
                 elif card.color_clue == False:
-                    print("I give a clue")
+                    #print("I give a clue")
                     c = "c%s"%card.color
                     return(c[:2])
 
@@ -190,19 +190,15 @@ class Player_better(AI):
         
         playable = [ (i+1, card) for (i,card) in
                      enumerate(game.current_hand.cards)
-                     if (card.color_clue != False and card.number_clue != False and game.piles[card.color]+1 == card.number) ] + [(i+1, card) for (i,card) in
-                     enumerate(game.current_hand.cards)
-                     if (card.color_clue != False and card.number == 1 and game.piles[card.color]+1 == card.number) ] #on peut jouer une carte si on a tous les indices dessus et qu'elle est effectivement jouable en regardant la pile
+                     if (card.color_clue != False and card.number_clue != False and game.piles[card.color]+1 == card.number) ] #on peut jouer une carte si on a tous les indices dessus et qu'elle est effectivement jouable en regardant la pile
 
-        print(playable)
 
         if playable:
             # sort by ascending number, then newest
             playable.sort(key=lambda p: (p[1].number, -p[0]))
-            print ('AI_Better would play:', "p%d"%playable[0][0], end=' ')
-            if (len(playable)>1):
-                print('but could also pick:', playable[1:])
-            else: print()
+            #print ('AI_Better would play:', "p%d"%playable[0][0], end=' ')
+            #if (len(playable)>1):
+                #print('but could also pick:', playable[1:])
 
             return "p%d"%playable[0][0]
             
@@ -213,38 +209,38 @@ class Player_better(AI):
         #On discard la carte non indic�e la plus � droite, la "CHOP" card
         hand = [ (i+1, card) for (i,card) in enumerate(game.current_hand.cards)]
         card_to_discard = "Empty"
-        for (i,card_maybe_discardable) in hand:
+        for (i,card_maybe_discardable) in reversed(hand):
             if (card_maybe_discardable.color_clue != False and card_maybe_discardable.number_clue != False):
                 card_to_discard = card_maybe_discardable
                 discardable=i
                 #on conserve la carte(son rang) sans indice la plus � droite en parcourant la main de gauche � droite et en gardant la derni�re carte qui convient
         
         if card_to_discard != "Empty": #on a alors trouv� une carte sans indice que l'on discard
-            print("I discard!")
+            #print("I discard!")
             return "d%d"%discardable
         
         #Sinon on prend la chop card en regardant que les indices nombres        
-        for (i,card_maybe_discardable) in hand:
+        for (i,card_maybe_discardable) in reversed(hand):
             if (card_maybe_discardable.number_clue != False):
                 card_to_discard = card_maybe_discardable
                 discardable=i
                 #on conserve la carte(son rang) sans indice la plus � droite en parcourant la main de gauche � droite et en gardant la derni�re carte qui convient
         
         if card_to_discard != "Empty": #on a alors trouv� une carte sans indice de nombre que l'on discard
-                print("I discard!")
+                #print("I discard!")
                 return "d%d"%discardable
                 
         #Sinon on prend la chop card en regardant que les indices couleurs        
-        for (i,card_maybe_discardable) in hand:
+        for (i,card_maybe_discardable) in reversed(hand):
             if (card_maybe_discardable.color_clue != False):
                 card_to_discard = card_maybe_discardable
                 discardable=i
                 #on conserve la carte(son rang) sans indice la plus � droite en parcourant la main de gauche � droite et en gardant la derni�re carte qui convient
         
         if card_to_discard != "Empty": #on a alors trouv� une carte sans indice de nombre que l'on discard
-                print("I discard!")
+                #print("I discard!")
                 return "d%d"%discardable
                 
         #Sinon on jette la premi�re carte pour �tre s�r de faire quelque chose (normalement on n'arrive pas ici)
-        print("I discard!")
+        #print("I discard!")
         return "d%d"%1 
