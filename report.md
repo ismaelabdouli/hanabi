@@ -42,7 +42,9 @@ Si on ne peut jouer aucune carte, on défausse la "chop card".
 Voici pour 1000 parties la courbe de répartition des scores :
 
 ![Figure 1 - 5 joueurs](https://github.com/ismaelabdouli/hanabi/blob/master/test/stat_better_1.png)
+
 Avec un score moyen de 5,12 sur 1000 parties, score allant de 2 à 10
 
 ![Figure 2 - 2 joueurs](https://github.com/ismaelabdouli/hanabi/blob/master/test/stat_better_2.png)
+
 Avec un score moyen de 8,86 sur 1000 parties, score allant de 4 à 14
