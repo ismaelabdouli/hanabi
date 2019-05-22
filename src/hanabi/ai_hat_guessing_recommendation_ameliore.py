@@ -269,7 +269,7 @@ class Player_hat_guesser(AI):
                 return('p%d'%self.what_to_do[index_what_to_do])
                 #return ('c{}'.format(what_to_do))
 
-            elif self.what_to_do[index_what_to_do] <= number_cards and self.latest_turn_memory[0]==0 and game.red_coins<2 : #If the most recent recommendation was to play a card, one card has been played since the hint was given, and the players have made fewer than two errors, play the recommended card
+            elif self.what_to_do[index_what_to_do] <= number_cards and self.latest_turn_memory[0]==1 and game.red_coins<2 : #If the most recent recommendation was to play a card, one card has been played since the hint was given, and the players have made fewer than two errors, play the recommended card
                 self.latest_turn_memory[0]+=1
                 game.current_hand.cards.append(virtual_card) #on rajoute une carte "virtuelle" pour conserver le même nombre de cartes total (len(visible) = constante)
                 return('p%d'%self.what_to_do[index_what_to_do])

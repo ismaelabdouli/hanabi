@@ -20,5 +20,5 @@ for i in range(1000):
 print(statistics.mean(L))
 plt.hist(L)
 plt.title('Statistiques pour Player hat guesser ameliore')
-plt.savefig('stat_hat_guesser_ameliore_1.png')
+plt.savefig('stat_hat_guesser_ameliore_3.png')
 plt.show()
