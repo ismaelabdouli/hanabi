@@ -17,7 +17,7 @@ Si le fait de piocher 3 jetons rouges ne ramenait pas le score à 0 mais arrêta
 
 ## AI Imparfaite
 
-### Description and Discussion
+### Description et Discussion
 
 Cette IA s'appelle  `ai_imparfaite.py`.
 
