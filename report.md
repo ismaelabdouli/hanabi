@@ -63,7 +63,7 @@ Cette méthode a l'avantage d'éviter de perdre une partie sans utiliser un prog
 
 ### Description
 
-Cette IA s'appelle  `ai_hat_guessing_recommendation_ameliore.py` (la version `ai_hat_guessing_recommendation_ameliore.py` a mal été pensée et nous avions des difficultés à utiliser les outils du `deck.py`).
+Cette IA s'appelle  `ai_hat_guessing_recommendation_ameliore.py` (la version `ai_hat_guessing_recommendation.py` a mal été pensée et nous avions des difficultés à utiliser les outils du `deck.py`).
 
 Cette IA se base sur le jeu du hat guessing, présenté sur le pdf : https://sites.google.com/site/rmgpgrwc/research-papers/Hanabi_final.pdf?attredirects=1. On attribue à chaque joueur une "couleur" (un numéro) correspondant au coup que l'on veut qu'il effectue. On fait la somme de ces numéros sur tous les joueurs visibles et cela nous donne un code correspondant à l'indice que l'on doit donner. Chaque joueur sait interpréter cet indice comme consigne individuelle car il voit les "couleurs" des autres joueurs et en déduit la sienne.
 
