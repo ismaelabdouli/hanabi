@@ -8,7 +8,7 @@ import numpy as np
 
 L=[]
 game=hanabi.Game(5)
-import hanabi.ai_vraiment_mieux_multiplayer as new_ai
+import hanabi.ai_mieux_multiplayer as new_ai
 
 for i in range(1000):
     game.reset()

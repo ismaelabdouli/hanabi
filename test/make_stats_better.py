@@ -7,12 +7,12 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 L=[]
-game=hanabi.Game(5)
-import hanabi.ai_vraiment_mieux as new_ai
+game=hanabi.Game(2)
+import hanabi.ai_mieux as new_ai
 
 for i in range(1000):
     game.reset()
-    game=hanabi.Game(5)
+    game=hanabi.Game(2)
     game.quiet=True
     ai=new_ai.Player_better(game)
     game.ai = ai
@@ -26,5 +26,5 @@ print(statistics.mean(L))
 # plt.plot(X,range(max(L)+1))
 plt.hist(L)
 plt.title('Statistiques pour Player better')
-plt.savefig('stat_better_1.png')
+plt.savefig('stat_better_2.png')
 plt.show()

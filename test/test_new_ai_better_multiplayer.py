@@ -4,9 +4,9 @@
 import hanabi
 import hanabi.ai
 
-import hanabi.ai_mieux as new_ai
+import hanabi.ai_mieux_multiplayer as new_ai
 
-game = hanabi.Game(2)  # 2 players
+game = hanabi.Game(5)  # 2 players
 
 ai = new_ai.Player_better(game)
 #ai = hanabi.ai.Cheater(game)
