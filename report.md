@@ -1,4 +1,4 @@
-# Rapport
+# Rapport MANDONNET Théo et ABDOULI Ismaël
 
 ## AI Random
 
