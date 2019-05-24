@@ -89,6 +89,6 @@ Il faut noter que cette IA ne peut jouer qu'à 5 joueurs car on doit avoir un co
 
 Enfin, on obtient une répartition équitable du nombre de jetons rouges (donc d'erreur) final, ce qui montre que l'on pourrait peut-être se permettre de prendre plus de risque en ajustant les conditions à respecter pour jouer une carte.
 
-##Conclusion
+## Conclusion
 
 Pour obtenir un score suffisamment élevé, il faut donc développer une IA dont la stratégie est trop complexe pour être suivie par un vrai joueur. On arrive alors à un score assez élevé, très proche du score maximal. En essayant de suivre des logiques de "vrais joueurs", nous n'avons jamais dépassé un score de 15.
