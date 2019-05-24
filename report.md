@@ -76,8 +76,19 @@ Voici, pour 1000 parties, la courbe de répartition des scores :
 
 Avec un score moyen de 22,25 sur 1000 parties, score allant de 15 à 25.
 
+Et on obtient la répartition du nombre de jetons rouge finaux suivante :
+
+![Figure 3 - red coins 5 joueurs](https://github.com/ismaelabdouli/hanabi/blob/master/test/red_coins_hat_guesser.png)
+
+
 ### Discussion
 
 On arrive à un score très satisfaisant, mais légèrement moindre que celui donné dans l'article susmentionné. Cela est peut-être dû au dernier tour, pour lequel on applique strictement la même méthode qu'au tour précédent, ce qui n'est pas forcément optimal. De plus, lors de ce dernier tour, nous avons décidé, pour avoir une liste des cartes des autres joueurs de même taille, même lorsqu'un joueur a une carte de moins, de lui rajouter une carte virtuelle (Yellow,0). Si on tombe sur cette carte ensuite, on ne la considère pas.
 
-Il faut noter que cette IA ne peut jouer qu'à 5 joueurs car on doit avoir un code qui décrit toutes les actions qu'un joueur peut effectuer. Ainsi, un joueur peut jouer ou défausser chaque carte de sa main, ce qui nécessite un code à 8 nombres pour 4 et 5 joueurs, et un code à 10 nombres pour 2 et 3 joueurs. Le code s'exprimant sur le type d'indice (deux possibilités : rang ou couleur) que l'on donne, et le numéro du joueur à qui on le donne, on manque de possibilités s'il y a moins de 5 joueurs. Pour remédier à cela, on pourrait utiliser la hat guessing strategy où l'on donne un indice au joueur suivant peu importe les cas. Le code serait alors déduit du type "complet" d'indice (10 possibilités : chaque couleur, chaque rang). Nous avons cependant manqué de temps pour l'implémenter. 
+Il faut noter que cette IA ne peut jouer qu'à 5 joueurs car on doit avoir un code qui décrit toutes les actions qu'un joueur peut effectuer. Ainsi, un joueur peut jouer ou défausser chaque carte de sa main, ce qui nécessite un code à 8 nombres pour 4 et 5 joueurs, et un code à 10 nombres pour 2 et 3 joueurs. Le code s'exprimant sur le type d'indice (deux possibilités : rang ou couleur) que l'on donne, et le numéro du joueur à qui on le donne, on manque de possibilités s'il y a moins de 5 joueurs. Pour remédier à cela, on pourrait utiliser la hat guessing strategy où l'on donne un indice au joueur suivant peu importe les cas. Le code serait alors déduit du type "complet" d'indice (10 possibilités : chaque couleur, chaque rang). Nous avons cependant manqué de temps pour l'implémenter.
+
+Enfin, on obtient une répartition équitable du nombre de jetons rouges (donc d'erreur) final, ce qui montre que l'on pourrait peut-être se permettre de prendre plus de risque en ajustant les conditions à respecter pour jouer une carte.
+
+##Conclusion
+
+Pour obtenir un score suffisamment élevé, il faut donc développer une IA dont la stratégie est trop complexe pour être suivie par un vrai joueur. On arrive alors à un score assez élevé, très proche du score maximal. En essayant de suivre des logiques de "vrais joueurs", nous n'avons jamais dépassé un score de 15.
