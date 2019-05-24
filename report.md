@@ -19,7 +19,7 @@ Si le fait de piocher 3 jetons rouges ne ramenait pas le score à 0 mais arrêta
 
 ### Description and Discussion
 
-Cette IA se trouve ici ``
+Cette IA s'appelle  `ai_imparfaite.py`.
 
 L'idée de cette IA était de s'inspirer de plusieurs éléments du document https://github.com/Zamiell/hanabi-conventions permettant de donner un ordre de priorité aux actions à effectuer ainsi qu'un ordre de priorité sur les indices à donner. L'IA était censée ne jouait que les cartes dont elle connaissait rang et couleur, donc elle ne devait jamais se tromper. Cependant, nous avions des difficultés à la rendre fonctionnelle lors du parcours des mains des autres joueurs.
 En effet, nous ne disposions pas encore de la fonction "other_players_cards" permettant d'obtenir une liste unique des mains visibles, supportant l'indexation. Nous n'avions donc pas un indice de liste unique pour chaque carte considérée. Par exemple, la carte d'index 2 de Alice et de Benji avait le même indice de liste mais était dans deux listes différentes. Cela complexifiait notre réflexion et nous avons décider de refaire cette IA avec une liste unique de la main des joueurs.
@@ -27,6 +27,8 @@ En effet, nous ne disposions pas encore de la fonction "other_players_cards" per
 ## AI VRAIMENTMIEU
 
 ### Description
+
+Cette IA s'appelle  `ai_mieux.py`. Une version alternative censée être plus adaptée au jeu à plus de 2 joueurs mais pourtant moins bien conçue s'appelle `ai_mieux_multiplayer.py`. On se concentre ici sur la première IA.
 
 Le principe de cette IA est donc le même que la précédente IA : donner un indice est la priorité. On distingue les "save clues" des "play clues". On suppose qu'il faut éviter de défausser les cartes indicées. Les "save clues", à faire avant les "play clues", visent donc à éviter de défausser certaines cartes, ce sont par ordre de priorité : 
 1. Les 5
@@ -60,6 +62,8 @@ Cette méthode a l'avantage d'éviter de perdre une partie sans utiliser un prog
 ## AI Hat Guessing Recommendation
 
 ### Description
+
+Cette IA s'appelle  `ai_hat_guessing_recommendation_ameliore.py` (la version `ai_hat_guessing_recommendation_ameliore.py` a mal été pensée et nous avions des difficultés à utiliser les outils du `deck.py`).
 
 Cette IA se base sur le jeu du hat guessing, présenté sur le pdf : https://sites.google.com/site/rmgpgrwc/research-papers/Hanabi_final.pdf?attredirects=1. On attribue à chaque joueur une "couleur" (un numéro) correspondant au coup que l'on veut qu'il effectue. On fait la somme de ces numéros sur tous les joueurs visibles et cela nous donne un code correspondant à l'indice que l'on doit donner. Chaque joueur sait interpréter cet indice comme consigne individuelle car il voit les "couleurs" des autres joueurs et en déduit la sienne.
 
