@@ -21,7 +21,7 @@ Si le fait de piocher 3 jetons rouges ne ramenait pas le score à 0 mais arrêta
 
 Cette IA s'appelle  `ai_imparfaite.py`.
 
-L'idée de cette IA était de s'inspirer de plusieurs éléments du document https://github.com/Zamiell/hanabi-conventions permettant de donner un ordre de priorité aux actions à effectuer ainsi qu'un ordre de priorité sur les indices à donner. L'IA était censée ne jouait que les cartes dont elle connaissait rang et couleur, donc elle ne devait jamais se tromper. Cependant, nous avions des difficultés à la rendre fonctionnelle lors du parcours des mains des autres joueurs.
+L'idée de cette IA était de s'inspirer de plusieurs éléments du document https://github.com/Zamiell/hanabi-conventions permettant de donner un ordre de priorité aux actions à effectuer ainsi qu'un ordre de priorité sur les indices à donner. L'IA était censée ne jouer que les cartes dont elle connaissait rang et couleur, donc elle ne devait jamais se tromper. Cependant, nous avions des difficultés à la rendre fonctionnelle lors du parcours des mains des autres joueurs.
 En effet, nous ne disposions pas encore de la fonction "other_players_cards" permettant d'obtenir une liste unique des mains visibles, supportant l'indexation. Nous n'avions donc pas un indice de liste unique pour chaque carte considérée. Par exemple, la carte d'index 2 de Alice et de Benji avait le même indice de liste mais était dans deux listes différentes. Cela complexifiait notre réflexion et nous avons décider de refaire cette IA avec une liste unique de la main des joueurs.
 
 ## AI Meilleure
@@ -71,7 +71,7 @@ On utilise cet ordre de priorité sur les actions à effectuer :
 1. Si la recommendation la plus récente était de jouer une carte et qu'aucune carte n'a été jouée depuis le dernier indice, jouer la carte recommandée.
 2. Si la recommendation la plus récente était de jouer une carte et qu'une carte a été jouée depuis le dernier indice, et que les joueurs ont moins de 2 jetons rouges, jouer la carte recommandée.
 3. Si les joueurs ont un jeton bleu, donner un indice.
-4.  Si la recommendation la plus récente était de défausser une carte, défausser la carte recommandée.
+4. Si la recommendation la plus récente était de défausser une carte, défausser la carte recommandée.
 5. Défausser la plus vieille carte de sa main (donc d'index 1).
 
 ### Simulation
@@ -89,9 +89,9 @@ Et on obtient la répartition du nombre de jetons rouge finaux suivante :
 
 ### Discussion
 
-On arrive à un score très satisfaisant, mais légèrement moindre que celui donné dans l'article susmentionné. Cela est peut-être dû au dernier tour, pour lequel on applique strictement la même méthode qu'au tour précédent, ce qui n'est pas forcément optimal. De plus, lors de ce dernier tour, nous avons décidé, pour avoir une liste des cartes des autres joueurs de même taille, même lorsqu'un joueur a une carte de moins, de lui rajouter une carte virtuelle (Yellow,0). Si on tombe sur cette carte ensuite, on ne la considère pas.
+On arrive à un score très satisfaisant, mais légèrement moindre que celui donné dans l'article susmentionné. Cela est peut-être dû au dernier tour, pour lequel on applique strictement la même méthode qu'au tour précédent, ce qui n'est pas forcément optimal. De plus, lors de ce dernier tour, nous avons décidé, pour que le nombre de cartes en main soit toujours constant, même lorsqu'un joueur a une carte de moins car il n'y a plus de cartes à piocher, de rajouter une carte virtuelle (Yellow, 0) aux joueurs dans cette situation. Si on tombe sur cette carte par la suite, on ne la considère pas.
 
-Il faut noter que cette IA ne peut jouer qu'à 5 joueurs car on doit avoir un code qui décrit toutes les actions qu'un joueur peut effectuer. Ainsi, un joueur peut jouer ou défausser chaque carte de sa main, ce qui nécessite un code à 8 nombres pour 4 et 5 joueurs, et un code à 10 nombres pour 2 et 3 joueurs. Le code s'exprimant sur le type d'indice (deux possibilités : rang ou couleur) que l'on donne, et le numéro du joueur à qui on le donne, on manque de possibilités s'il y a moins de 5 joueurs. Pour remédier à cela, on pourrait utiliser la hat guessing strategy où l'on donne un indice au joueur suivant peu importe les cas. Le code serait alors déduit du type "complet" d'indice (10 possibilités : chaque couleur, chaque rang). Nous avons cependant manqué de temps pour l'implémenter.
+Il faut noter que cette IA ne peut jouer qu'à 5 joueurs car on doit avoir un code qui décrit toutes les actions qu'un joueur peut effectuer. Ainsi, un joueur peut jouer ou défausser chaque carte de sa main, ce qui nécessite un code à 8 nombres pour 4 et 5 joueurs, et un code à 10 nombres pour 2 et 3 joueurs. Le code s'exprimant sur le type d'indice (deux possibilités : rang ou couleur) que l'on donne, et le numéro du joueur à qui on le donne, on manque de possibilités s'il y a moins de 5 joueurs. Pour remédier à cela, on pourrait utiliser la  stratégie du hat guessing où l'on donne un indice au joueur suivant peu importe le cas. Le code serait alors déduit du type "complet" d'indice (10 possibilités : chaque couleur, chaque rang). Nous avons cependant manqué de temps pour l'implémenter.
 
 Enfin, on obtient une répartition équitable du nombre de jetons rouges (donc d'erreur) final, ce qui montre que l'on pourrait peut-être se permettre de prendre plus de risque en ajustant les conditions à respecter pour jouer une carte.
 
