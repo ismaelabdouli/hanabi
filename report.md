@@ -45,7 +45,7 @@ Si on ne peut jouer aucune carte, on défausse la "chop card".
 
 ### Simulation
 
-Voici, pour 1000 parties, la courbe de répartition des scores :
+Voici, pour 1000 parties, la courbe de répartition des scores (5 joueurs puis 2 joueurs) :
 
 ![Figure 1 - 5 joueurs](https://github.com/ismaelabdouli/hanabi/blob/master/test/stat_better_1.png)
 
